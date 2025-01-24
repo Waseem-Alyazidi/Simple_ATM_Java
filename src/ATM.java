@@ -22,8 +22,8 @@ public class ATM {
     }
 
 
-    //* Get currnecy category  *//
-    static void get_currnecy_category(int amount) {
+    //* Get currency category  *//
+    static void get_currency_category(int amount) {
         // The valid categories
         final int[] categories = {500, 100, 50, 10, 5, 2, 1};
 
@@ -53,8 +53,8 @@ public class ATM {
                 System.out.println("\033[31mInvalid amount! Please enter an amount (1-inf).\033[0m\n");
                 continue;
             }
-            // Call get_currnecy_category
-            get_currnecy_category(amount);
+            // Call get_currency_category
+            get_currency_category(amount);
             input.nextLine(); // Clear the input
 
             System.out.print("\nDo you want to continue (Y/N): ");
@@ -75,7 +75,7 @@ public class ATM {
     public static void main(String[] args) {
         final String USER_ID = "0123456789";
         final String PASSWORD = "123";
-        int countValidPasswords = 3;
+        int countInvalidPasswords = 3;
 
         clear_screen();
         while(true) {
@@ -83,7 +83,7 @@ public class ATM {
             System.out.println("\033[32m    Welcome to Waseem ATM System    \033[0m");
             System.out.println("\033[32m=\033[0m".repeat(36) + "\n");
 
-            if(countValidPasswords == 0) { // Check the chances
+            if(countInvalidPasswords == 0) { // Check the chances
                 clear_screen();
                 return;
             }
@@ -99,8 +99,8 @@ public class ATM {
             // Check the passwords
             if(!pass1.equals(USER_ID) || !pass2.equals(PASSWORD)) {
                 clear_screen();
-                countValidPasswords--;
-                System.out.printf("\033[31mAccess denied! you have %d chances.\033[0m\n\n", countValidPasswords);
+                countInvalidPasswords--;
+                System.out.printf("\033[31mAccess denied! you have %d chances.\033[0m\n\n", countInvalidPasswords);
                 continue;
             }
 
